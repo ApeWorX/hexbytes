@@ -30,7 +30,7 @@ class HexBytes(bytes):
         3. ``to_0x_hex`` returns a 0x-prefixed hex string
     """
 
-    def __new__(cls: type[bytes], val: BytesLike) -> "HexBytes":
+    def __new__(cls, val: BytesLike) -> "HexBytes":
         bytesval = to_bytes(val)
         return super().__new__(cls, bytesval)
 
