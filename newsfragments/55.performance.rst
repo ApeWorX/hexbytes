@@ -1,0 +1,1 @@
+remove redundant cast in __new__
