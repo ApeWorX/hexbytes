@@ -12,7 +12,7 @@ Read the [documentation](https://hexbytes.readthedocs.io/).
 
 View the [change log](https://hexbytes.readthedocs.io/en/latest/release_notes.html).
 
-## Quickstart
+## Installation
 
 ```sh
 python -m pip install hexbytes
