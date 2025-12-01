@@ -15,7 +15,6 @@ development machine:
 
     git clone git@github.com:your-github-username/hexbytes.git
 
-
 Next, install the development dependencies. We recommend using a virtual environment,
 such as `virtualenv <https://virtualenv.pypa.io/en/stable/>`_.
 

@@ -23,7 +23,7 @@ extras_require = {
     ],
     "test": [
         "eth_utils>=2.0.0",
-        "hypothesis>=3.44.24,<=6.31.6",
+        "hypothesis>=3.44.24",
         "pytest>=7.0.0",
         "pytest-xdist>=2.4.0",
     ],
@@ -40,8 +40,8 @@ with open("./README.md") as readme:
 
 setup(
     name="hexbytes",
-    # *IMPORTANT*: Don't manually change the version here. Use `make bump`, as described in readme
-    version="1.2.1",
+    # *IMPORTANT*: Don't manually change the version here. See Contributing docs for the release process.
+    version="1.3.1",
     description="""hexbytes: Python `bytes` subclass that decodes hex, with a readable console output""",
     long_description=long_description,
     long_description_content_type="text/markdown",

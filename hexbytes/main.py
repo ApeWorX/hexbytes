@@ -1,5 +1,7 @@
 from typing import (
     TYPE_CHECKING,
+    Callable,
+    Tuple,
     Type,
     Union,
     cast,
@@ -58,3 +60,13 @@ class HexBytes(bytes):
         Convert the bytes to a 0x-prefixed hex string
         """
         return "0x" + self.hex()
+
+    def __reduce__(
+        self,
+    ) -> Tuple[Callable[..., bytes], Tuple[Type["HexBytes"], bytes]]:
+        """
+        An optimized ``__reduce__`` that bypasses the input validation in
+        ``HexBytes.__new__`` since an existing HexBytes instance has already been
+        validated when created.
+        """
+        return bytes.__new__, (type(self), bytes(self))

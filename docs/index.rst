@@ -18,7 +18,7 @@ It adds these features:
 
 
 Installation
-~~~~~~~~~~~~
+------------
 
 .. code-block:: bash
 

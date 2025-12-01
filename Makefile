@@ -109,5 +109,6 @@ endif
 check-git:
 	# require that upstream is configured for ethereum/hexbytes
 	@if ! git remote -v | grep "upstream[[:space:]]git@github.com:ethereum/hexbytes.git (push)\|upstream[[:space:]]https://github.com/ethereum/hexbytes (push)"; then \
+		echo "Error: You must have a remote named 'upstream' that points to 'hexbytes'"; \
 		exit 1; \
 	fi
