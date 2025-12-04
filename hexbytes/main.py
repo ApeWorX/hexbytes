@@ -4,7 +4,6 @@ from collections.abc import (
 from typing import (
     TYPE_CHECKING,
     Union,
-    cast,
     overload,
 )
 
@@ -31,9 +30,9 @@ class HexBytes(bytes):
         3. ``to_0x_hex`` returns a 0x-prefixed hex string
     """
 
-    def __new__(cls: type[bytes], val: BytesLike) -> "HexBytes":
+    def __new__(cls, val: BytesLike) -> "HexBytes":
         bytesval = to_bytes(val)
-        return cast(HexBytes, super().__new__(cls, bytesval))  # type: ignore  # https://github.com/python/typeshed/issues/2630  # noqa: E501
+        return super().__new__(cls, bytesval)
 
     @overload
     def __getitem__(self, key: "SupportsIndex") -> int:  # noqa: F811
