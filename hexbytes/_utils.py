@@ -1,10 +1,7 @@
 import binascii
-from typing import (
-    Union,
-)
 
 
-def to_bytes(val: Union[bool, bytearray, bytes, int, str, memoryview]) -> bytes:
+def to_bytes(val: bool | bytearray | bytes | int | str | memoryview) -> bytes:
     """
     Equivalent to: `eth_utils.hexstr_if_str(eth_utils.to_bytes, val)` .
 

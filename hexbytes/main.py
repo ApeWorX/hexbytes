@@ -1,8 +1,8 @@
+from collections.abc import (
+    Callable,
+)
 from typing import (
     TYPE_CHECKING,
-    Callable,
-    Tuple,
-    Type,
     Union,
     cast,
     overload,
@@ -31,7 +31,7 @@ class HexBytes(bytes):
         3. ``to_0x_hex`` returns a 0x-prefixed hex string
     """
 
-    def __new__(cls: Type[bytes], val: BytesLike) -> "HexBytes":
+    def __new__(cls: type[bytes], val: BytesLike) -> "HexBytes":
         bytesval = to_bytes(val)
         return cast(HexBytes, super().__new__(cls, bytesval))  # type: ignore  # https://github.com/python/typeshed/issues/2630  # noqa: E501
 
@@ -63,7 +63,7 @@ class HexBytes(bytes):
 
     def __reduce__(
         self,
-    ) -> Tuple[Callable[..., bytes], Tuple[Type["HexBytes"], bytes]]:
+    ) -> tuple[Callable[..., bytes], tuple[type["HexBytes"], bytes]]:
         """
         An optimized ``__reduce__`` that bypasses the input validation in
         ``HexBytes.__new__`` since an existing HexBytes instance has already been
