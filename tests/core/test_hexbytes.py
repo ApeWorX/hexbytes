@@ -1,6 +1,6 @@
-import pytest
 import pickle
 
+import pytest
 from eth_utils import (
     decode_hex,
     remove_0x_prefix,

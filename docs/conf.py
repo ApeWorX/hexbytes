@@ -53,7 +53,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "HexBytes"
-copyright = "2020-2023, The Ethereum Foundation"
+copyright = "2020-2025, The Ethereum Foundation"
 
 __version__ = setup_version
 # The version info for the project you're documenting, acts as replacement for

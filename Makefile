@@ -61,11 +61,12 @@ validate-newsfragments:
 check-docs: build-docs validate-newsfragments
 
 build-docs:
-	sphinx-apidoc -o docs/ . setup.py "*conftest*"
+	sphinx-apidoc -o docs/ . setup.py "*conftest*" "tests" "tests/*"
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(MAKE) -C docs doctest
 
+# docs helpers for CI, which requires extra dependencies
 check-docs-ci: build-docs build-docs-ci validate-newsfragments
 
 build-docs-ci:
@@ -102,7 +103,7 @@ release: check-bump check-git clean
 
 check-bump:
 ifndef bump
-	$(error bump must be one of: major, minor, patch, stage, or devnum)
+	$(error bump must be set, typically: major, minor, patch, or devnum)
 endif
 
 check-git:

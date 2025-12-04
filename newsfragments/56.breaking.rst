@@ -1,0 +1,1 @@
+Apply template update - remove Python 3.8 and 3.9, add support for Python 3.14.
