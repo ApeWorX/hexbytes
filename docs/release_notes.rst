@@ -3,6 +3,21 @@ Release Notes
 
 .. towncrier release notes start
 
+hexbytes v2.0.0-beta.1 (2025-12-17)
+-----------------------------------
+
+Breaking Changes
+~~~~~~~~~~~~~~~~
+
+- Apply template update - remove Python 3.8 and 3.9, add support for Python 3.14. (`#56 <https://github.com/ethereum/hexbytes/issues/56>`__)
+
+
+Performance Improvements
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- remove redundant cast in __new__ (`#55 <https://github.com/ethereum/hexbytes/issues/55>`__)
+
+
 hexbytes v1.3.1 (2025-05-14)
 ----------------------------
 
