@@ -3,7 +3,6 @@ from collections.abc import (
 )
 from typing import (
     TYPE_CHECKING,
-    Union,
     overload,
 )
 
@@ -16,7 +15,7 @@ if TYPE_CHECKING:
         SupportsIndex,
     )
 
-BytesLike = Union[bool, bytearray, bytes, int, str, memoryview]
+BytesLike = bool | bytearray | bytes | int | str | memoryview
 
 
 class HexBytes(bytes):
@@ -43,8 +42,8 @@ class HexBytes(bytes):
         ...
 
     def __getitem__(  # noqa: F811
-        self, key: Union["SupportsIndex", slice]
-    ) -> Union[int, bytes, "HexBytes"]:
+        self, key: "SupportsIndex | slice"
+    ) -> "int | bytes | HexBytes":
         result = super().__getitem__(key)
         if hasattr(result, "hex"):
             return type(self)(result)

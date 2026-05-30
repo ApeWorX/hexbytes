@@ -78,6 +78,9 @@ logs
 # pyenv
 .python-version
 
+# uv lock file
+uv.lock
+
 # vs-code
 .vscode
 

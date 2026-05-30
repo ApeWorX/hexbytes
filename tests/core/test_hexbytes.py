@@ -4,10 +4,14 @@ import pytest
 from eth_utils import (
     decode_hex,
     remove_0x_prefix,
+)
+from eth_utils import (
     to_bytes as standard_to_bytes,
 )
 from hypothesis import (
     given,
+)
+from hypothesis import (
     strategies as st,
 )
 
@@ -21,7 +25,7 @@ hexstr_strategy = st.from_regex(r"\A(0[xX])?[0-9a-fA-F]*\Z")
 def assert_equal(hexbytes, bytes_expected):
     assert hexbytes == bytes_expected
     assert len(hexbytes) == len(bytes_expected)
-    for byte_actual, byte_expected in zip(hexbytes, bytes_expected):
+    for byte_actual, byte_expected in zip(hexbytes, bytes_expected, strict=True):
         assert byte_actual == byte_expected
     assert bytes(hexbytes) == bytes_expected
 
@@ -88,17 +92,17 @@ def test_hex_inputs(hex_input):
 
 
 def test_pretty_output():
-    hb = HexBytes(b"\x0F\x1a")
+    hb = HexBytes(b"\x0f\x1a")
     assert repr(hb) == "HexBytes('0x0f1a')"
 
 
 def test_does_not_break_bytes_hex():
-    hb = HexBytes(b"\x0F\x1a")
+    hb = HexBytes(b"\x0f\x1a")
     assert hb.hex() == "0f1a"
 
 
 def test_to_0x_hex():
-    hb = HexBytes(b"\x0F\x1a")
+    hb = HexBytes(b"\x0f\x1a")
     assert hb.to_0x_hex() == "0x0f1a"
 
 
