@@ -4,17 +4,15 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "3.11"
+  jobs:
+    post_create_environment:
+      - pip install uv
+    post_install:
+      - uv sync --locked --active --group docs
 
 sphinx:
   configuration: docs/conf.py
   fail_on_warning: true
-
-python:
-  install:
-    - method: pip
-      path: .
-      extra_requirements:
-        - docs
 
 # Build all formats for RTD Downloads - htmlzip, pdf, epub
 formats: all
