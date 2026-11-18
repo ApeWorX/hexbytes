@@ -65,7 +65,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-exclude = ["scripts", "scripts.*", "tests", "tests.*"]
+include = ["hexbytes", "hexbytes.*"]
 
 [tool.setuptools.package-data]
 hexbytes = ["py.typed"]
