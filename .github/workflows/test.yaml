@@ -66,3 +66,9 @@ jobs:
 
       - name: Run Tests
         run: uv run --group test pytest tests
+
+      - name: Check wheel contents
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
+        run: |
+          uv build
+          python tests/check_wheel.py dist/*.whl
